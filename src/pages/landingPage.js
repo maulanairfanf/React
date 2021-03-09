@@ -10,3 +10,4 @@ export default class landingPage extends Component {
         )
     }
 }
+ 

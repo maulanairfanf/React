@@ -8,5 +8,4 @@ export default date => {
   const [{ value: mo }, , { value: da }] = dtf.formatToParts(d);
 
   return `${da} ${mo}`;
-  // return date;
 };

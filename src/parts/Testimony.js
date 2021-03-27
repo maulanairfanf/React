@@ -4,6 +4,7 @@ import Button from "elements/Button";
 import TestimonyAccent from "assets/images/testimonial-landingpages-frame.jpg";
 
 export default function Testimony({ data }) {
+  console.log(data);
   return (
     <section className="container">
       <div className="row align-items-center">

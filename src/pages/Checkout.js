@@ -4,8 +4,7 @@ export default class Checkout extends Component {
   render() {
     return (
       <>
-        {" "}
-        <Header isCentered /> }
+        <Header isCentered />
       </>
     );
   }

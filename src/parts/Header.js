@@ -15,7 +15,6 @@ export default function Header(props) {
             <nav className="navbar navbar-expand-lg navbar-light">
               <BrandIcon props={props.isCentered} />
             </nav>
-            <p className="d-none">asdas</p>
           </div>
         </header>
       </Fade>

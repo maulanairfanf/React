@@ -43,14 +43,13 @@ export default class Checkout extends Component {
   }
   render() {
     const { data } = this.state;
-
     const checkout = {
       duration: 3,
     };
     const steps = {
       bookingInformation: {
         title: "Booking Information",
-        description: "Plase fill up the blank fields below",
+        description: "Please fill up the blank fields below",
         content: (
           <BookingInformation
             data={data}
@@ -62,7 +61,7 @@ export default class Checkout extends Component {
       },
       payment: {
         title: "Payment",
-        description: "Kindly follow the instruction below",
+        description: "Kindly follow the instructions below",
         content: (
           <Payment
             data={data}
@@ -81,7 +80,6 @@ export default class Checkout extends Component {
     return (
       <>
         <Header isCentered />
-
         <Stepper steps={steps}>
           {(prevStep, nextStep, CurrentStep, steps) => {
             <>
@@ -92,6 +90,7 @@ export default class Checkout extends Component {
               />
               <Meta data={steps} current={CurrentStep} />
               <MainContent data={steps} current={CurrentStep} />
+              {console.log(prevStep, nextStep, CurrentStep, steps)}
               {CurrentStep === "bookingInformation" && (
                 <Controller>
                   {data.firstName !== "" &&
@@ -117,40 +116,41 @@ export default class Checkout extends Component {
                     isBlock
                     isLight
                     href={`/properties/${ItemDetails._id}`}
-                  >
-                    Cancel
-                  </Button>
+                  ></Button>
                 </Controller>
               )}
 
               {CurrentStep === "payment" && (
-                <Controller>
-                  {data.proofPayment !== "" &&
-                    data.bankName !== "" &&
-                    data.bankHolder !== "" && (
-                      <Fade>
-                        <Button
-                          className="btn mb-3"
-                          type="button"
-                          isBlock
-                          isPrimary
-                          hasShadow
-                          onClick={nextStep}
-                        >
-                          Continue to Book
-                        </Button>
-                      </Fade>
-                    )}
-                  <Button
-                    className="btn"
-                    type="button"
-                    isBlock
-                    isLight
-                    onClick={prevStep}
-                  >
-                    Cancel
-                  </Button>
-                </Controller>
+                <Fade>
+                  <Controller>
+                    {data.proofPayment !== "" &&
+                      data.bankName !== "" &&
+                      data.bankHolder !== "" && (
+                        <Fade>
+                          <Button
+                            className="btn mb-3"
+                            type="button"
+                            isBlock
+                            isPrimary
+                            isShadow
+                            hasShadow
+                            onClick={nextStep}
+                          >
+                            Continue to Book
+                          </Button>
+                        </Fade>
+                      )}
+                    <Button
+                      className="btn"
+                      type="button"
+                      isBlock
+                      isLight
+                      onClick={prevStep}
+                    >
+                      Cancel
+                    </Button>
+                  </Controller>
+                </Fade>
               )}
 
               {CurrentStep === "completed" && (
@@ -162,9 +162,7 @@ export default class Checkout extends Component {
                     isPrimary
                     hasShadow
                     href=""
-                  >
-                    Back to Home
-                  </Button>
+                  ></Button>
                 </Controller>
               )}
             </>;

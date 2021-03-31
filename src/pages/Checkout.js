@@ -114,13 +114,16 @@ export default class Checkout extends Component {
                         </Button>
                       </Fade>
                     )}
+
                   <Button
-                    className="btn"
+                    className="btn "
                     type="link"
                     isBlock
                     isLight
                     href={`/properties/${ItemDetails._id}`}
-                  ></Button>
+                  >
+                    Cancel
+                  </Button>
                 </Controller>
               )}
 
@@ -166,7 +169,9 @@ export default class Checkout extends Component {
                     isPrimary
                     hasShadow
                     href=""
-                  ></Button>
+                  >
+                    Back to Home
+                  </Button>
                 </Controller>
               )}
             </>

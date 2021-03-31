@@ -81,7 +81,7 @@ export default class Checkout extends Component {
       <>
         <Header isCentered />
         <Stepper steps={steps}>
-          {(prevStep, nextStep, CurrentStep, steps) => {
+          {(prevStep, nextStep, CurrentStep, steps) => (
             <>
               <Numbering
                 data={steps}
@@ -90,7 +90,11 @@ export default class Checkout extends Component {
               />
               <Meta data={steps} current={CurrentStep} />
               <MainContent data={steps} current={CurrentStep} />
-              {console.log(prevStep, nextStep, CurrentStep, steps)}
+              {console.log(prevStep)}
+              {console.log(nextStep)}
+              {console.log(CurrentStep)}
+              {console.log(steps)}
+
               {CurrentStep === "bookingInformation" && (
                 <Controller>
                   {data.firstName !== "" &&
@@ -165,8 +169,8 @@ export default class Checkout extends Component {
                   ></Button>
                 </Controller>
               )}
-            </>;
-          }}
+            </>
+          )}
         </Stepper>
       </>
     );

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from "react-html-parser";
 export default function PageDetailDescription({ data }) {
   return (
     <main>
       <h4>About the place</h4>
       {ReactHtmlParser(data.description)}
       <div className="row" style={{ marginTop: 30 }}>
-        {data.features.length === 0
-          ? 'Tidak Ada Feature'
-          : data.features.map((feature, index) => {
+        {data.featureId.length === 0
+          ? "Tidak Ada Feature"
+          : data.featureId.map((feature, index) => {
               return (
                 <div
                   key={`feature-${index}`}
@@ -19,10 +19,10 @@ export default function PageDetailDescription({ data }) {
                   <img
                     width="38"
                     className="d-block mb-2"
-                    src={feature.imageUrl}
+                    src={`${process.env.REACT_APP_HOST}/${feature.imageUrl}`}
                     alt={feature.name}
-                  />{' '}
-                  <span>{feature.qty}</span>{' '}
+                  />{" "}
+                  <span>{feature.qty}</span>{" "}
                   <span className="text-gray-500 font-weight-light">
                     {feature.name}
                   </span>
